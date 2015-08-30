@@ -14,6 +14,18 @@
 		69A3AF161B92C2EE00E4DBFF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69A3AF151B92C2EE00E4DBFF /* Images.xcassets */; };
 		69A3AF191B92C2EE00E4DBFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A3AF171B92C2EE00E4DBFF /* LaunchScreen.xib */; };
 		69A3AF251B92C2EE00E4DBFF /* FoodieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A3AF241B92C2EE00E4DBFF /* FoodieTests.swift */; };
+		69A3AF301B92C35000E4DBFF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF2E1B92C35000E4DBFF /* Bolts.framework */; };
+		69A3AF311B92C35000E4DBFF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF2F1B92C35000E4DBFF /* Parse.framework */; };
+		69A3AF331B92C37300E4DBFF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF321B92C37300E4DBFF /* AudioToolbox.framework */; };
+		69A3AF351B92C37D00E4DBFF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF341B92C37D00E4DBFF /* CFNetwork.framework */; };
+		69A3AF371B92C38500E4DBFF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF361B92C38500E4DBFF /* CoreGraphics.framework */; };
+		69A3AF391B92C38C00E4DBFF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF381B92C38C00E4DBFF /* CoreLocation.framework */; };
+		69A3AF3B1B92C39300E4DBFF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF3A1B92C39300E4DBFF /* QuartzCore.framework */; };
+		69A3AF3D1B92C39900E4DBFF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF3C1B92C39900E4DBFF /* Security.framework */; };
+		69A3AF3F1B92C3A500E4DBFF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF3E1B92C3A500E4DBFF /* StoreKit.framework */; };
+		69A3AF411B92C3B000E4DBFF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF401B92C3B000E4DBFF /* SystemConfiguration.framework */; };
+		69A3AF431B92C3C000E4DBFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF421B92C3C000E4DBFF /* libsqlite3.dylib */; };
+		69A3AF451B92C3C900E4DBFF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3AF441B92C3C900E4DBFF /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +50,18 @@
 		69A3AF1E1B92C2EE00E4DBFF /* FoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A3AF231B92C2EE00E4DBFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69A3AF241B92C2EE00E4DBFF /* FoodieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieTests.swift; sourceTree = "<group>"; };
+		69A3AF2E1B92C35000E4DBFF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		69A3AF2F1B92C35000E4DBFF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		69A3AF321B92C37300E4DBFF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		69A3AF341B92C37D00E4DBFF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		69A3AF361B92C38500E4DBFF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		69A3AF381B92C38C00E4DBFF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		69A3AF3A1B92C39300E4DBFF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		69A3AF3C1B92C39900E4DBFF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		69A3AF3E1B92C3A500E4DBFF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		69A3AF401B92C3B000E4DBFF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		69A3AF421B92C3C000E4DBFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		69A3AF441B92C3C900E4DBFF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +69,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69A3AF451B92C3C900E4DBFF /* libz.dylib in Frameworks */,
+				69A3AF431B92C3C000E4DBFF /* libsqlite3.dylib in Frameworks */,
+				69A3AF411B92C3B000E4DBFF /* SystemConfiguration.framework in Frameworks */,
+				69A3AF3F1B92C3A500E4DBFF /* StoreKit.framework in Frameworks */,
+				69A3AF3D1B92C39900E4DBFF /* Security.framework in Frameworks */,
+				69A3AF3B1B92C39300E4DBFF /* QuartzCore.framework in Frameworks */,
+				69A3AF391B92C38C00E4DBFF /* CoreLocation.framework in Frameworks */,
+				69A3AF371B92C38500E4DBFF /* CoreGraphics.framework in Frameworks */,
+				69A3AF351B92C37D00E4DBFF /* CFNetwork.framework in Frameworks */,
+				69A3AF331B92C37300E4DBFF /* AudioToolbox.framework in Frameworks */,
+				69A3AF311B92C35000E4DBFF /* Parse.framework in Frameworks */,
+				69A3AF301B92C35000E4DBFF /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +97,18 @@
 		69A3AEFD1B92C2EE00E4DBFF = {
 			isa = PBXGroup;
 			children = (
+				69A3AF441B92C3C900E4DBFF /* libz.dylib */,
+				69A3AF421B92C3C000E4DBFF /* libsqlite3.dylib */,
+				69A3AF401B92C3B000E4DBFF /* SystemConfiguration.framework */,
+				69A3AF3E1B92C3A500E4DBFF /* StoreKit.framework */,
+				69A3AF3C1B92C39900E4DBFF /* Security.framework */,
+				69A3AF3A1B92C39300E4DBFF /* QuartzCore.framework */,
+				69A3AF381B92C38C00E4DBFF /* CoreLocation.framework */,
+				69A3AF361B92C38500E4DBFF /* CoreGraphics.framework */,
+				69A3AF341B92C37D00E4DBFF /* CFNetwork.framework */,
+				69A3AF321B92C37300E4DBFF /* AudioToolbox.framework */,
+				69A3AF2E1B92C35000E4DBFF /* Bolts.framework */,
+				69A3AF2F1B92C35000E4DBFF /* Parse.framework */,
 				69A3AF081B92C2EE00E4DBFF /* Foodie */,
 				69A3AF211B92C2EE00E4DBFF /* FoodieTests */,
 				69A3AF071B92C2EE00E4DBFF /* Products */,
@@ -344,6 +392,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Foodie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,6 +406,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Foodie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
