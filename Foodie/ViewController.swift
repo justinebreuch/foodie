@@ -270,8 +270,12 @@ class ViewController: UIViewController {
     
     func getInstagramData(instagram_id:String) -> Void {
         
-        println("getting data")
         var glanceOfPlaceImageView: UIImageView!
+        var scrollViewContentSize:CGFloat = 0
+        
+        picturesScrollView.backgroundColor = UIColor.orangeColor()
+        picturesScrollView.frame = self.view.bounds
+
         
         if let url = NSURL(string: "https://api.instagram.com/v1/locations/\(instagram_id)/media/recent?access_token=\(instagram_access_token)") {
             
@@ -285,7 +289,7 @@ class ViewController: UIViewController {
                 let instas = json["data"] as! NSArray
                 
                 for insta in instas {
-                    println("new picture")
+                
                     let pictures = insta["images"] as! NSDictionary!
                     let standard_res = pictures["standard_resolution"] as! NSDictionary!
     
@@ -293,21 +297,20 @@ class ViewController: UIViewController {
                     let data = NSData(contentsOfURL: url!)
                     
                     if data != nil {
-//                      glanceOfPlaceImageView.image = UIImage(data:data!)
                         
                         glanceOfPlaceImageView = UIImageView(image: UIImage(data:data!))
-                        
-                        picturesScrollView.frame = view.bounds
-                        
-                        picturesScrollView.backgroundColor = UIColor.blackColor()
-                        picturesScrollView.contentSize = glanceOfPlaceImageView.bounds.size
-                        picturesScrollView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-                        
-                        picturesScrollView.contentOffset = CGPoint(x: 1000, y: 450)
-                        
+                        glanceOfPlaceImageView.frame.origin.y = scrollViewContentSize
+                        scrollViewContentSize += glanceOfPlaceImageView.bounds.height
+                        picturesScrollView.contentOffset.y = 20
                         picturesScrollView.addSubview(glanceOfPlaceImageView)
-                        view.addSubview(picturesScrollView)
+                        println(scrollViewContentSize)
+
                     }
+                    picturesScrollView.contentSize.width = view.bounds.size.width
+                    picturesScrollView.contentSize.height = scrollViewContentSize
+                    picturesScrollView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+                   
+                    view.addSubview(picturesScrollView)
                     
                 }
                 
