@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var glanceOfPlaceImageView: UIImageView!
+    @IBOutlet weak var picturesScrollView: UIScrollView!
+    
     
     private
     let foursquare_client_id="XPVBDQQX3N4FUYXXLN52XCTT1GKPITP0LCYLTZ0YDNBZMLG1"
@@ -52,6 +53,7 @@ class ViewController: UIViewController {
             let groups = response["groups"] as! NSArray
             let recommended = groups[0] as! NSDictionary
             let items = recommended["items"] as! NSArray
+            
             let item = items[0] as! NSDictionary
             
                 // venue is one restaurant
@@ -269,6 +271,7 @@ class ViewController: UIViewController {
     func getInstagramData(instagram_id:String) -> Void {
         
         println("getting data")
+        var glanceOfPlaceImageView: UIImageView!
         
         if let url = NSURL(string: "https://api.instagram.com/v1/locations/\(instagram_id)/media/recent?access_token=\(instagram_access_token)") {
             
@@ -282,7 +285,7 @@ class ViewController: UIViewController {
                 let instas = json["data"] as! NSArray
                 
                 for insta in instas {
-                    
+                    println("new picture")
                     let pictures = insta["images"] as! NSDictionary!
                     let standard_res = pictures["standard_resolution"] as! NSDictionary!
     
@@ -290,28 +293,24 @@ class ViewController: UIViewController {
                     let data = NSData(contentsOfURL: url!)
                     
                     if data != nil {
-                        glanceOfPlaceImageView.image = UIImage(data:data!)
+//                      glanceOfPlaceImageView.image = UIImage(data:data!)
+                        
+                        glanceOfPlaceImageView = UIImageView(image: UIImage(data:data!))
+                        
+                        picturesScrollView.frame = view.bounds
+                        
+                        picturesScrollView.backgroundColor = UIColor.blackColor()
+                        picturesScrollView.contentSize = glanceOfPlaceImageView.bounds.size
+                        picturesScrollView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+                        
+                        picturesScrollView.contentOffset = CGPoint(x: 1000, y: 450)
+                        
+                        picturesScrollView.addSubview(glanceOfPlaceImageView)
+                        view.addSubview(picturesScrollView)
                     }
-
-//                    let pictures = insta["images"] as! NSDictionary
-//                    let standard_res = pictures["standard_resolution"] as! NSDictionary
-//                    let url = NSURL(string: standard_res["url"] as! String)
-//                    let data = NSData(contentsOfURL: url!)
-//                    let picture:UIImage = UIImage(data: data!)!
                     
                 }
                 
-                
-//                let first_insta = (instas[0] as? NSDictionary)!
-//                let pictures = first_insta["images"] as! NSDictionary!
-//                
-//                let standard_res = pictures["standard_resolution"] as! NSDictionary!
-//                
-//                let url = NSURL(string: standard_res["url"] as! String!)
-//                let data = NSData(contentsOfURL: url!)
-//                if data != nil {
-//                    glanceOfPlaceImageView.image = UIImage(data:data!)
-//                }
             }
         }
     }

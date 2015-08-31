@@ -22,30 +22,26 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULY-Vd-Jrw">
-                                <rect key="frame" x="180" y="193" width="240" height="237"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="5JN-r9-9CB"/>
-                                    <constraint firstAttribute="height" constant="237" id="j3H-BU-P4a"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDB-Ho-FjY">
                                 <rect key="frame" x="244" y="126" width="112.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNd-9d-3co">
+                                <rect key="frame" x="180" y="224" width="240" height="314"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eDB-Ho-FjY" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="106" id="6ah-Q3-eDE"/>
-                            <constraint firstAttribute="centerX" secondItem="ULY-Vd-Jrw" secondAttribute="centerX" id="GcN-l0-haH"/>
                             <constraint firstAttribute="centerX" secondItem="eDB-Ho-FjY" secondAttribute="centerX" id="hTP-MR-rHc"/>
+                            <constraint firstAttribute="centerX" secondItem="GNd-9d-3co" secondAttribute="centerX" id="iGJ-6J-6Nb"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="glanceOfPlaceImageView" destination="ULY-Vd-Jrw" id="aJv-77-LfG"/>
                         <outlet property="nameLabel" destination="eDB-Ho-FjY" id="oE8-eN-IQc"/>
+                        <outlet property="picturesScrollView" destination="GNd-9d-3co" id="gTs-ia-TAO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
