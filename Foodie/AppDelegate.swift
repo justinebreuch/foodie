@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Foodie
+//  Foodie COPY
 //
 //  Created by Justine Breuch on 8/30/15.
 //  Copyright (c) 2015 Justine Breuch. All rights reserved.
@@ -10,6 +10,9 @@ import UIKit
 import CoreData
 import Parse
 import Bolts
+import FBSDKCoreKit
+import FBSDKLoginKit
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,14 +25,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         
         // Initialize Parse.
-        Parse.setApplicationId("7zEAtOipwlD6SpzQm5tActNIBSP8cFH4WbM19t8r",
-            clientKey: "0PlRylv9Ba8b8RdH2DDl3M2v4w50P0O5jilynsam")
+        Parse.setApplicationId("CRtOEG9Wt3CylOSLQWeylTryF7K88L6tjL8slDOC",
+            clientKey: "rWrhCZRrkMqkIYYcWuqbuQmWAVoZLEV0pP6CPY3G")
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
 
         return true
     }
+    
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject?) -> Bool {
+            return FBSDKApplicationDelegate.sharedInstance().application(application,
+                openURL: url,
+                sourceApplication: sourceApplication,
+                annotation: annotation)
+    }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -47,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
