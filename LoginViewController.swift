@@ -34,12 +34,12 @@ class LoginViewController: UIViewController {
             
             if let user = user {
                 if user.isNew {
-                    println("User signed up and logged in through Facebook!")
+                    print("User signed up and logged in through Facebook!")
                 } else {
-                    println("User logged in through Facebook!")
+                    print("User logged in through Facebook!")
                 }
             } else {
-                println("Uh oh. The user cancelled the Facebook login.")
+                print("Uh oh. The user cancelled the Facebook login.")
             }
         })
         

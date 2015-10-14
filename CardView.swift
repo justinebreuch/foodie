@@ -13,7 +13,6 @@ class CardView: UIView {
     
     // these will appear on the app as elements
     private let nameLabel: UILabel = UILabel()
-    private let picturesScrollView: UIScrollView = UIScrollView()
     
     // these get set when you pass it in
     var name: String? {
@@ -26,20 +25,7 @@ class CardView: UIView {
         }
     }
     
-    var picturesScroll: UIScrollView? {
-        didSet {
-            if let picturesScroll = picturesScroll {
-        
-                // element from the top
-                picturesScrollView.backgroundColor = UIColor.orangeColor()
-                picturesScrollView.directionalLockEnabled = true
-                
-            }
-        }
-    }
-    
-    
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }
@@ -51,19 +37,10 @@ class CardView: UIView {
     
     
     private func initialize() {
-        println("called initialize CardView")
+        print("called initialize CardView")
         
-        nameLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(nameLabel)
-        
-        picturesScroll?.frame = self.bounds
-        picturesScroll?.contentSize.width = self.bounds.size.width
-        picturesScroll?.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-
-        if (picturesScroll != nil) {
-            println("picturesScroll is not nil at initialize")
-            addSubview(picturesScroll!)
-        }
         
         backgroundColor = UIColor.redColor()
         layer.borderWidth = 0.5
@@ -71,24 +48,40 @@ class CardView: UIView {
         layer.cornerRadius = 5
         layer.masksToBounds = true
         
-        setConstraints()
     }
     
-    private func setConstraints() {
+    func setScrollView(datas: NSArray) {
         
+        var scrollViewContentSize:CGFloat = 0
         
-//        //Constraints for ImageView
-//        addConstraint(NSLayoutConstraint(item: picturesScrollView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0))
-//        addConstraint(NSLayoutConstraint(item: picturesScrollView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Leading, multiplier: 1.0, constant: 0))
-//        addConstraint(NSLayoutConstraint(item: picturesScrollView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0))
-//        addConstraint(NSLayoutConstraint(item: picturesScrollView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Height, multiplier: 1.0, constant: 0))
-//
-//        //Constraints for Label
-//        addConstraint(NSLayoutConstraint(item: nameLabel, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: picturesScrollView, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0))
-//        addConstraint(NSLayoutConstraint(item: nameLabel, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Leading, multiplier: 1.0, constant: 10))
-//        addConstraint(NSLayoutConstraint(item: nameLabel, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: -10))
-//        addConstraint(NSLayoutConstraint(item: nameLabel, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0))
+        var instaScrollView: UIScrollView!
+        var glanceOfPlaceImageView: UIImageView!
         
+        instaScrollView = UIScrollView(frame: self.bounds)
+        
+        for data in datas {
+           
+            glanceOfPlaceImageView = UIImageView(image: UIImage(data: data as! NSData))
+            glanceOfPlaceImageView.frame.size.height = 400
+            glanceOfPlaceImageView.frame.size.width = instaScrollView.bounds.width
+            glanceOfPlaceImageView.frame.origin.y = scrollViewContentSize
+            
+            scrollViewContentSize += glanceOfPlaceImageView.bounds.height
+            print(scrollViewContentSize)
+
+            instaScrollView.addSubview(glanceOfPlaceImageView)
+            print("added image")
+
+        }
+        
+        instaScrollView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
+        instaScrollView.contentSize.width = self.bounds.size.width
+        instaScrollView.backgroundColor = UIColor.purpleColor()
+        instaScrollView.directionalLockEnabled = true
+        instaScrollView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        instaScrollView.contentSize.height = scrollViewContentSize
+        
+        addSubview(instaScrollView)
         
     }
 

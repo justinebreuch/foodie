@@ -39,7 +39,7 @@ class SwipeView: UIView {
     
     weak var delegate: SwipeViewDelegate?
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }
@@ -52,7 +52,7 @@ class SwipeView: UIView {
     private func initialize() {
         
         // change to clear
-        self.backgroundColor = UIColor.purpleColor()
+        self.backgroundColor = UIColor.clearColor()
         
         self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "dragged:"))
         
@@ -60,7 +60,7 @@ class SwipeView: UIView {
     
     func dragged(gestureRecognizer: UIPanGestureRecognizer) {
         let distance = gestureRecognizer.translationInView(self)
-        println("distance x: \(distance.x) y: \(distance.y)")
+//        print("distance x: \(distance.x) y: \(distance.y)")
         
         switch gestureRecognizer.state {
         case UIGestureRecognizerState.Began:
@@ -82,7 +82,7 @@ class SwipeView: UIView {
             }
             
         default:
-            println("Default trigged for GestureRecognizer")
+            print("Default trigged for GestureRecognizer")
             break
         }
         

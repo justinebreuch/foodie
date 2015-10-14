@@ -10,7 +10,7 @@ import UIKit
 import Bolts
 import Parse
 
-// protokol lets frontcard and backcard call functions defined in the swipeview protokol from the CardsViewController
+// protocol lets frontcard and backcard call functions defined in the swipeview protokol from the CardsViewController
 
 class CardsViewController: UIViewController, SwipeViewDelegate {
     
@@ -43,14 +43,18 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
     
         // this function is in Place.swift
         fetchAllPlaces({
+            
             returnedPlaces in
+            
             // self.places refers to var places: [Places]? set above
             self.places = returnedPlaces
-            println(self.places)
+            print(self.places)
             
+            // UNCOMMENT for swipeview
             if let card = self.popCard() {
                 self.frontCard = card
                 self.cardStackView.addSubview(self.frontCard!.swipeView)
+            
             }
             
             if let card = self.popCard() {
@@ -73,31 +77,22 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
     }
     
     private func createCard(place: Place) -> Card {
-        println("called createCard")
-        
-        let cardView = CardView()
-        
-        cardView.name = place.name
-  
-        place.getInstagramData( {
-                returnedScrollView in
-                println("I HAVE RETURNED SCROLL VIEW AND IT IS: ")
-                println(returnedScrollView)
-                cardView.picturesScroll = returnedScrollView
-        })
-        
+        print("called createCard")
         let swipeView = SwipeView(frame: createCardFrame(0))
+        let cardView = CardView(frame: CGRect(x: 0, y: 0, width: swipeView.bounds.width, height: swipeView.bounds.height))
+
+        cardView.name = place.name
+        cardView.setScrollView(place.getData())
+        
         swipeView.delegate = self
         swipeView.innerView = cardView
         
-        if cardView.picturesScroll != nil {
-            println("before I create the Card, picturesScroll is not empty")
-        }
         
         return Card(cardView: cardView, swipeView: swipeView, place: place)
     }
     
     private func popCard() -> Card? {
+        
         if places != nil && places?.count > 0 {
             return createCard(places!.removeLast())
         }
@@ -107,14 +102,14 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
     // Mark: SwipeViewDelegate
     
     func swipedLeft() {
-        println("left")
+        print("left")
         if let frontCard = frontCard {
             frontCard.swipeView.removeFromSuperview()
         }
     }
     
     func swipedRight() {
-        println("right")
+        print("right")
         if let frontCard = frontCard {
             frontCard.swipeView.removeFromSuperview()
         }
