@@ -25,8 +25,8 @@ struct Place {
 
     func getData() -> NSArray {
         var datas = [NSData]()
-        
-        if let url = NSURL(string: "https://api.instagram.com/v1/locations/622119/media/recent?access_token=11905781.47733f8.af1a1a2e06fb4c90b6c6804612fc495d") {
+        print("instagram id for this place is " + self.instagram_id)
+        if let url = NSURL(string: "https://api.instagram.com/v1/locations/\(self.instagram_id)/media/recent?access_token=11905781.47733f8.af1a1a2e06fb4c90b6c6804612fc495d") {
             
             if let contents = NSData(contentsOfURL: url) {
                 
@@ -90,14 +90,15 @@ func fetchAllPlaces(callback: ([Place]) -> ()) {
             let recommended = groups[0] as! NSDictionary
             let items = recommended["items"] as! NSArray
             
-            let item = items[0] as! NSDictionary
+//            let item = items[0] as! NSDictionary
 //            for item in items {
+            for i in 1...4 {
             
                 // venue is one restaurant
-                let venue: NSDictionary = (item["venue"] as? NSDictionary)!
-                var checkpoint: String = venue["id"] as! String
+                let venue: NSDictionary = (items[i]["venue"] as? NSDictionary)!
+                let checkpoint: String = venue["id"] as! String
 
-                var query = PFQuery(className:"Place")
+                let query = PFQuery(className:"Place")
                 query.whereKey("foursquare_id", equalTo: "\(checkpoint)")
                 query.findObjectsInBackgroundWithBlock {
                     (objects: [AnyObject]?, error: NSError?) -> Void in
@@ -105,7 +106,7 @@ func fetchAllPlaces(callback: ([Place]) -> ()) {
                     
                     if error == nil {
                         // The find succeeded.
-                        print("Retrieved \(objects!.count) places.")
+//                        print("Retrieved \(objects!.count) places.")
                         
                         
                         if (objects!.count == 0) {
@@ -188,7 +189,7 @@ func fetchAllPlaces(callback: ([Place]) -> ()) {
                     }
                     
                 }
-//            }
+            }
         }
     }
 }

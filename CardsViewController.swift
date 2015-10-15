@@ -48,7 +48,7 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
             
             // self.places refers to var places: [Places]? set above
             self.places = returnedPlaces
-            print(self.places)
+//            print(self.places)
             
             // UNCOMMENT for swipeview
             if let card = self.popCard() {
@@ -77,11 +77,12 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
     }
     
     private func createCard(place: Place) -> Card {
-        print("called createCard")
+  
         let swipeView = SwipeView(frame: createCardFrame(0))
         let cardView = CardView(frame: CGRect(x: 0, y: 0, width: swipeView.bounds.width, height: swipeView.bounds.height))
 
         cardView.name = place.name
+        print("place.name is " + place.name)
         cardView.setScrollView(place.getData())
         
         swipeView.delegate = self
@@ -102,14 +103,14 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
     // Mark: SwipeViewDelegate
     
     func swipedLeft() {
-        print("left")
+     
         if let frontCard = frontCard {
             frontCard.swipeView.removeFromSuperview()
         }
     }
     
     func swipedRight() {
-        print("right")
+
         if let frontCard = frontCard {
             frontCard.swipeView.removeFromSuperview()
         }

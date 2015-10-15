@@ -59,26 +59,34 @@ class SwipeView: UIView {
     }
     
     func dragged(gestureRecognizer: UIPanGestureRecognizer) {
+        
         let distance = gestureRecognizer.translationInView(self)
-//        print("distance x: \(distance.x) y: \(distance.y)")
+        print("distance x: \(distance.x) y: \(distance.y)")
         
         switch gestureRecognizer.state {
+            
         case UIGestureRecognizerState.Began:
-            originalPoint = center
+            
+            self.originalPoint = self.center
+            
         case UIGestureRecognizerState.Changed:
+            
             let rotationPercentage = min(distance.x/(self.superview!.frame.width / 2), 1)
             let rotationAngle = (CGFloat(2 * M_PI / 16) * CGFloat(rotationPercentage))
             
+            self.center = CGPointMake(originalPoint!.x + distance.x, originalPoint!.y + distance.y)
+
             // gives radian to rotate item
             transform = CGAffineTransformMakeRotation(rotationAngle)
             
-            center = CGPointMake(originalPoint!.x + distance.x, originalPoint!.y + distance.y)
         case UIGestureRecognizerState.Ended:
             
             if abs(distance.x) < frame.width / 4 {
                 resetViewPositionAndTransformations()
+                print("SHOULD RESET")
             } else {
                 swipe(distance.x > 0 ? Direction.Right : Direction.Left)
+                print("SHOULD SWIPE RIGHT OR LEFT")
             }
             
         default:
@@ -86,8 +94,10 @@ class SwipeView: UIView {
             break
         }
         
-        center = CGPointMake(originalPoint!.x + distance.x, originalPoint!.y + distance.y)
+//        center = CGPointMake(originalPoint!.x + distance.x, originalPoint!.y + distance.y)
+
     }
+    
     
     func swipe(s: Direction) {
         if s == Direction.None {
@@ -109,6 +119,10 @@ class SwipeView: UIView {
             
             })
         
+    }
+    
+    func getOriginalPoint() -> CGPoint {
+        return originalPoint!
     }
     
     // over the duration, it will update the view
