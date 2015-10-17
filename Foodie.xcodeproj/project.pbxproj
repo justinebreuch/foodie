@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		69776E9A1B9B2CF3009961EB /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69776E991B9B2CF3009961EB /* SwipeView.swift */; };
+		69A186DD1BD0B177005EDDF0 /* BrandonGrotesque-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186D11BD0ACF3005EDDF0 /* BrandonGrotesque-Black.otf */; };
+		69A186DE1BD0B177005EDDF0 /* BrandonGrotesque-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186D21BD0ACF3005EDDF0 /* BrandonGrotesque-BlackItalic.otf */; };
+		69A186DF1BD0B177005EDDF0 /* BrandonGrotesque-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186D31BD0ACF3005EDDF0 /* BrandonGrotesque-Bold.otf */; };
+		69A186E01BD0B177005EDDF0 /* BrandonGrotesque-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186D41BD0ACF3005EDDF0 /* BrandonGrotesque-BoldItalic.otf */; };
+		69A186E11BD0B177005EDDF0 /* BrandonGrotesque-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186D51BD0ACF3005EDDF0 /* BrandonGrotesque-Light.otf */; };
+		69A186E21BD0B177005EDDF0 /* BrandonGrotesque-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186D61BD0ACF3005EDDF0 /* BrandonGrotesque-LightItalic.otf */; };
+		69A186E31BD0B177005EDDF0 /* BrandonGrotesque-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186D71BD0ACF3005EDDF0 /* BrandonGrotesque-Medium.otf */; };
+		69A186E41BD0B177005EDDF0 /* BrandonGrotesque-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186D81BD0ACF3005EDDF0 /* BrandonGrotesque-MediumItalic.otf */; };
+		69A186E51BD0B177005EDDF0 /* BrandonGrotesque-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186D91BD0ACF3005EDDF0 /* BrandonGrotesque-Regular.otf */; };
+		69A186E61BD0B177005EDDF0 /* BrandonGrotesque-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186DA1BD0ACF3005EDDF0 /* BrandonGrotesque-RegularItalic.otf */; };
+		69A186E71BD0B177005EDDF0 /* BrandonGrotesque-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186DB1BD0ACF3005EDDF0 /* BrandonGrotesque-Thin.otf */; };
+		69A186E81BD0B177005EDDF0 /* BrandonGrotesque-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69A186DC1BD0ACF3005EDDF0 /* BrandonGrotesque-ThinItalic.otf */; };
 		69A3AF0C1B92C2EE00E4DBFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A3AF0B1B92C2EE00E4DBFF /* AppDelegate.swift */; };
 		69A3AF0F1B92C2EE00E4DBFF /* Foodie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69A3AF0D1B92C2EE00E4DBFF /* Foodie.xcdatamodeld */; };
 		69A3AF111B92C2EE00E4DBFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A3AF101B92C2EE00E4DBFF /* ViewController.swift */; };
@@ -51,6 +63,18 @@
 
 /* Begin PBXFileReference section */
 		69776E991B9B2CF3009961EB /* SwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
+		69A186D11BD0ACF3005EDDF0 /* BrandonGrotesque-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-Black.otf"; sourceTree = "<group>"; };
+		69A186D21BD0ACF3005EDDF0 /* BrandonGrotesque-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-BlackItalic.otf"; sourceTree = "<group>"; };
+		69A186D31BD0ACF3005EDDF0 /* BrandonGrotesque-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-Bold.otf"; sourceTree = "<group>"; };
+		69A186D41BD0ACF3005EDDF0 /* BrandonGrotesque-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-BoldItalic.otf"; sourceTree = "<group>"; };
+		69A186D51BD0ACF3005EDDF0 /* BrandonGrotesque-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-Light.otf"; sourceTree = "<group>"; };
+		69A186D61BD0ACF3005EDDF0 /* BrandonGrotesque-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-LightItalic.otf"; sourceTree = "<group>"; };
+		69A186D71BD0ACF3005EDDF0 /* BrandonGrotesque-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-Medium.otf"; sourceTree = "<group>"; };
+		69A186D81BD0ACF3005EDDF0 /* BrandonGrotesque-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-MediumItalic.otf"; sourceTree = "<group>"; };
+		69A186D91BD0ACF3005EDDF0 /* BrandonGrotesque-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-Regular.otf"; sourceTree = "<group>"; };
+		69A186DA1BD0ACF3005EDDF0 /* BrandonGrotesque-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-RegularItalic.otf"; sourceTree = "<group>"; };
+		69A186DB1BD0ACF3005EDDF0 /* BrandonGrotesque-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-Thin.otf"; sourceTree = "<group>"; };
+		69A186DC1BD0ACF3005EDDF0 /* BrandonGrotesque-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-ThinItalic.otf"; sourceTree = "<group>"; };
 		69A3AF061B92C2EE00E4DBFF /* Foodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A3AF0A1B92C2EE00E4DBFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69A3AF0B1B92C2EE00E4DBFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +182,18 @@
 		69A3AF091B92C2EE00E4DBFF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				69A186D11BD0ACF3005EDDF0 /* BrandonGrotesque-Black.otf */,
+				69A186D21BD0ACF3005EDDF0 /* BrandonGrotesque-BlackItalic.otf */,
+				69A186D31BD0ACF3005EDDF0 /* BrandonGrotesque-Bold.otf */,
+				69A186D41BD0ACF3005EDDF0 /* BrandonGrotesque-BoldItalic.otf */,
+				69A186D51BD0ACF3005EDDF0 /* BrandonGrotesque-Light.otf */,
+				69A186D61BD0ACF3005EDDF0 /* BrandonGrotesque-LightItalic.otf */,
+				69A186D71BD0ACF3005EDDF0 /* BrandonGrotesque-Medium.otf */,
+				69A186D81BD0ACF3005EDDF0 /* BrandonGrotesque-MediumItalic.otf */,
+				69A186D91BD0ACF3005EDDF0 /* BrandonGrotesque-Regular.otf */,
+				69A186DA1BD0ACF3005EDDF0 /* BrandonGrotesque-RegularItalic.otf */,
+				69A186DB1BD0ACF3005EDDF0 /* BrandonGrotesque-Thin.otf */,
+				69A186DC1BD0ACF3005EDDF0 /* BrandonGrotesque-ThinItalic.otf */,
 				69A3AF0A1B92C2EE00E4DBFF /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -314,6 +350,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69A186DD1BD0B177005EDDF0 /* BrandonGrotesque-Black.otf in Resources */,
+				69A186DE1BD0B177005EDDF0 /* BrandonGrotesque-BlackItalic.otf in Resources */,
+				69A186DF1BD0B177005EDDF0 /* BrandonGrotesque-Bold.otf in Resources */,
+				69A186E01BD0B177005EDDF0 /* BrandonGrotesque-BoldItalic.otf in Resources */,
+				69A186E11BD0B177005EDDF0 /* BrandonGrotesque-Light.otf in Resources */,
+				69A186E21BD0B177005EDDF0 /* BrandonGrotesque-LightItalic.otf in Resources */,
+				69A186E31BD0B177005EDDF0 /* BrandonGrotesque-Medium.otf in Resources */,
+				69A186E41BD0B177005EDDF0 /* BrandonGrotesque-MediumItalic.otf in Resources */,
+				69A186E51BD0B177005EDDF0 /* BrandonGrotesque-Regular.otf in Resources */,
+				69A186E61BD0B177005EDDF0 /* BrandonGrotesque-RegularItalic.otf in Resources */,
+				69A186E71BD0B177005EDDF0 /* BrandonGrotesque-Thin.otf in Resources */,
+				69A186E81BD0B177005EDDF0 /* BrandonGrotesque-ThinItalic.otf in Resources */,
 				69A3AF141B92C2EE00E4DBFF /* Main.storyboard in Resources */,
 				69A3AF191B92C2EE00E4DBFF /* LaunchScreen.xib in Resources */,
 				69A3AF161B92C2EE00E4DBFF /* Images.xcassets in Resources */,

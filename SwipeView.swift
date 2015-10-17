@@ -61,7 +61,7 @@ class SwipeView: UIView {
     func dragged(gestureRecognizer: UIPanGestureRecognizer) {
         
         let distance = gestureRecognizer.translationInView(self)
-        print("distance x: \(distance.x) y: \(distance.y)")
+//        print("distance x: \(distance.x) y: \(distance.y)")
         
         switch gestureRecognizer.state {
             
@@ -103,7 +103,9 @@ class SwipeView: UIView {
         if s == Direction.None {
             return
         }
-        var parentWidth = superview!.frame.size.width
+        
+        var parentWidth = superview!.frame.size.width*2
+        
         if s == Direction.Left {
             parentWidth *= -1
         }

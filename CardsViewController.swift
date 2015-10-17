@@ -29,18 +29,27 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
     
     let frontCardTopMargin: CGFloat = 0
     let backCardTopMargin: CGFloat = 10
-
     
     @IBOutlet weak var cardStackView: UIView!
+    @IBOutlet weak var restaurantNameLabel: UILabel!
+    @IBOutlet weak var oneStarImage: UIImageView!
+    @IBOutlet weak var twoStarImage: UIImageView!
+    @IBOutlet weak var threeStarImage: UIImageView!
+    @IBOutlet weak var fourStarImage: UIImageView!
+    @IBOutlet weak var fiveStarImage: UIImageView!
     
     var backCard: Card?
     var frontCard: Card?
     
     var places: [Place]?
+    var placesInfo = [Place]()
+    
+//    private var current_place: Place?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        view.backgroundColor = UIColor.whiteColor()
+        
         // this function is in Place.swift
         fetchAllPlaces({
             
@@ -48,7 +57,6 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
             
             // self.places refers to var places: [Places]? set above
             self.places = returnedPlaces
-//            print(self.places)
             
             // UNCOMMENT for swipeview
             if let card = self.popCard() {
@@ -77,13 +85,24 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
     }
     
     private func createCard(place: Place) -> Card {
-  
+        
         let swipeView = SwipeView(frame: createCardFrame(0))
         let cardView = CardView(frame: CGRect(x: 0, y: 0, width: swipeView.bounds.width, height: swipeView.bounds.height))
 
-        cardView.name = place.name
+        restaurantNameLabel.text = place.name.uppercaseString
+        
+        oneStarImage.image = UIImage(contentsOfFile: "empty_rating")
+        twoStarImage.image = UIImage(contentsOfFile: "empty_rating")
+        threeStarImage.image = UIImage(contentsOfFile: "empty_rating")
+        fourStarImage.image = UIImage(contentsOfFile: "empty_rating")
+        fiveStarImage.image = UIImage(contentsOfFile: "empty_rating")
+
         print("place.name is " + place.name)
         cardView.setScrollView(place.getData())
+        
+        placesInfo.append(place)
+        
+        print(placesInfo.last)
         
         swipeView.delegate = self
         swipeView.innerView = cardView
@@ -100,12 +119,20 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
         return nil
     }
     
+    private func updateRestaurantInfo() {
+        placesInfo.removeLast()
+        restaurantNameLabel.text = placesInfo.last!.name.uppercaseString
+        
+    }
+    
+    
     // Mark: SwipeViewDelegate
     
     func swipedLeft() {
-     
+        
         if let frontCard = frontCard {
             frontCard.swipeView.removeFromSuperview()
+            updateRestaurantInfo()
         }
     }
     
@@ -113,6 +140,7 @@ class CardsViewController: UIViewController, SwipeViewDelegate {
 
         if let frontCard = frontCard {
             frontCard.swipeView.removeFromSuperview()
+            updateRestaurantInfo()
         }
     }
 

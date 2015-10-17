@@ -39,6 +39,21 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BrandonGrotesque-ThinItalic.otf</string>
+		<string>BrandonGrotesque-Thin.otf</string>
+		<string>BrandonGrotesque-RegularItalic.otf</string>
+		<string>BrandonGrotesque-Regular.otf</string>
+		<string>BrandonGrotesque-MediumItalic.otf</string>
+		<string>BrandonGrotesque-Medium.otf</string>
+		<string>BrandonGrotesque-LightItalic.otf</string>
+		<string>BrandonGrotesque-Light.otf</string>
+		<string>BrandonGrotesque-BoldItalic.otf</string>
+		<string>BrandonGrotesque-Bold.otf</string>
+		<string>BrandonGrotesque-Black.otf</string>
+		<string>BrandonGrotesque-BlackItalic.otf</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -50,9 +65,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
-    	<dict>
-           <key>NSAllowsArbitraryLoads</key>
-          <true/>
-   	</dict>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

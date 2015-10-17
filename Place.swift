@@ -24,35 +24,40 @@ struct Place {
     
 
     func getData() -> NSArray {
+        
         var datas = [NSData]()
-        print("instagram id for this place is " + self.instagram_id)
+
         if let url = NSURL(string: "https://api.instagram.com/v1/locations/\(self.instagram_id)/media/recent?access_token=11905781.47733f8.af1a1a2e06fb4c90b6c6804612fc495d") {
+            
+//            let request = NSURLRequest(URL: url)
+//            
+//            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, contents, error) in
             
             if let contents = NSData(contentsOfURL: url) {
                 
                 // Create another error optional
-                var jsonerror:NSError?
                 
                 if let json: AnyObject = (try? NSJSONSerialization.JSONObjectWithData(contents, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary) {
                     
-                    let instas = json["data"] as! NSArray
+                    if let instas = json["data"] as? NSArray {
                     
-                    for insta in instas {
-                        
-                        let pictures = insta["images"] as! NSDictionary!
-                        let standard_res = pictures["standard_resolution"] as! NSDictionary!
-                        
-                        let url = NSURL(string: standard_res["url"] as! String!)
-                        let data = NSData(contentsOfURL: url!)
-                        
-                        if data != nil {
-                            datas.append(data!)
+                        for insta in instas {
+                            
+                            let pictures = insta["images"] as! NSDictionary!
+                            let standard_res = pictures["standard_resolution"] as! NSDictionary!
+                            
+                            let url = NSURL(string: standard_res["url"] as! String!)
+                            let data = NSData(contentsOfURL: url!)
+                            
+                            if data != nil {
+                                datas.append(data!)
+                            }
                         }
-                        
+                    
                     }
                     
                 } else {
-                    print(jsonerror)
+                    print("jsonerror")
                 }
             }
         } else {
@@ -79,25 +84,26 @@ func fetchAllPlaces(callback: ([Place]) -> ()) {
     //  standard base
     let url = NSURL(string: "https://api.foursquare.com/v2/venues/explore?ll=\(ll)&section=food&openNow=1&client_id=\(foursquare_client_id)&client_secret=\(foursquare_client_secret)&v=\(version)")
     
-    if let data = NSData(contentsOfURL: url!) {
+    let request = NSURLRequest(URL: url!)
     
-        let jsonError: NSError?
+    NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+        //print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+        //let jsonError: NSError?
         
-        if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary {
+        if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary {
             
             let response = json["response"] as! NSDictionary
             let groups = response["groups"] as! NSArray
             let recommended = groups[0] as! NSDictionary
             let items = recommended["items"] as! NSArray
             
-//            let item = items[0] as! NSDictionary
-//            for item in items {
-            for i in 1...4 {
-            
+            //            let item = items[0] as! NSDictionary
+            for item in items {
+                
                 // venue is one restaurant
-                let venue: NSDictionary = (items[i]["venue"] as? NSDictionary)!
+                let venue: NSDictionary = (item["venue"] as? NSDictionary)!
                 let checkpoint: String = venue["id"] as! String
-
+                
                 let query = PFQuery(className:"Place")
                 query.whereKey("foursquare_id", equalTo: "\(checkpoint)")
                 query.findObjectsInBackgroundWithBlock {
@@ -106,13 +112,12 @@ func fetchAllPlaces(callback: ([Place]) -> ()) {
                     
                     if error == nil {
                         // The find succeeded.
-//                        print("Retrieved \(objects!.count) places.")
+                        //                        print("Retrieved \(objects!.count) places.")
                         
                         
                         if (objects!.count == 0) {
                             // save new entries
-                            print("creating new object")
-                            var place = PFObject(className:"Place")
+                            let place = PFObject(className:"Place")
                             
                             place["foursquare_id"] = venue["id"]
                             
@@ -152,7 +157,6 @@ func fetchAllPlaces(callback: ([Place]) -> ()) {
                             place.saveInBackgroundWithBlock {
                                 (success: Bool, error: NSError?) -> Void in
                                 if (success) {
-                                    print("Success!")
                                 } else {
                                     print("There was a problem!")
                                 }
@@ -160,8 +164,8 @@ func fetchAllPlaces(callback: ([Place]) -> ()) {
                             
                         }
                         // HAD ELSE HERE
-                
-                            
+                        
+                        
                         // Do something with the found objects
                         print("Looking in Parse")
                         
@@ -169,17 +173,16 @@ func fetchAllPlaces(callback: ([Place]) -> ()) {
                         
                         if let pfPlaces = objects as? [PFObject] {
                             
-                            // print func 
+                            // print func
                             
                             for object in pfPlaces {
-                                print(object["name"])
+//                                print(object["name"])
                             }
                             
                             // $0 means pfPlaces
                             let places = pfPlaces.map({pfPlaceToPlace($0)})
-                            print("before callback")
                             callback(places)
-                        
+                            
                         }
                         
                     } else {
@@ -193,6 +196,7 @@ func fetchAllPlaces(callback: ([Place]) -> ()) {
         }
     }
 }
+
 
 func getInstagramId(checkpoint:String) -> String? {
     

@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kng-Ty-NNS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="BrandonGrotesque-Bold.otf">
+            <string>BrandonGrotesque-Bold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="RCS-ud-arX">
@@ -46,29 +52,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkn-Uv-7s6">
-                                <rect key="frame" x="170" y="74" width="260" height="320"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tkn-Uv-7s6">
+                                <rect key="frame" x="120" y="153" width="360" height="417"/>
                                 <color key="backgroundColor" red="0.1529411765" green="0.61176470589999998" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="3rU-3S-PvJ"/>
-                                    <constraint firstAttribute="height" constant="320" id="3sV-xo-jxr"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="350" id="2mu-T9-cjQ"/>
+                                    <constraint firstAttribute="width" constant="360" id="3rU-3S-PvJ"/>
+                                    <constraint firstAttribute="height" constant="417" id="3sV-xo-jxr"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="dJ0-Cf-1oR"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiD-UO-dhE">
+                                <rect key="frame" x="214" y="73" width="361" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="445" id="sbu-Rv-J3e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="sbu-Rv-J3e"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZf-5I-dBH">
+                                <rect key="frame" x="560" y="121" width="15" height="15"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQ6-4K-GM3">
+                                <rect key="frame" x="537" y="121" width="15" height="15"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="heq-OM-4Nd">
+                                <rect key="frame" x="514" y="121" width="15" height="15"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Wz-Kp-n3H">
+                                <rect key="frame" x="491" y="121" width="15" height="15"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ip-xx-AWu">
+                                <rect key="frame" x="468" y="121" width="15" height="15"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="tkn-Uv-7s6" secondAttribute="centerX" id="DPX-1B-II3"/>
-                            <constraint firstItem="tkn-Uv-7s6" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="INi-0Y-NVD"/>
+                            <constraint firstItem="fiD-UO-dhE" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="9" id="E4y-1M-dZb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fiD-UO-dhE" secondAttribute="trailing" constant="5" id="HrP-vU-6tz"/>
+                            <constraint firstItem="tkn-Uv-7s6" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="INi-0Y-NVD"/>
+                            <constraint firstItem="fiD-UO-dhE" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="QVo-Kw-pnL"/>
+                            <constraint firstItem="fiD-UO-dhE" firstAttribute="top" secondItem="tkn-Uv-7s6" secondAttribute="bottom" constant="40" id="m8N-Oe-jwf"/>
+                            <constraint firstItem="tkn-Uv-7s6" firstAttribute="top" secondItem="fiD-UO-dhE" secondAttribute="bottom" constant="36" id="yjM-FJ-gLI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="INi-0Y-NVD"/>
+                                <exclude reference="QVo-Kw-pnL"/>
+                                <exclude reference="m8N-Oe-jwf"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="yR5-6a-BDx"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="yR5-6a-BDx">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="Bew-kP-6xp"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cardStackView" destination="tkn-Uv-7s6" id="saa-r6-uUv"/>
+                        <outlet property="fiveStarImage" destination="qZf-5I-dBH" id="m4m-Ui-l57"/>
+                        <outlet property="fourStarImage" destination="FQ6-4K-GM3" id="Phj-rC-LwM"/>
+                        <outlet property="oneStarImage" destination="9Ip-xx-AWu" id="lNf-NP-r2S"/>
+                        <outlet property="restaurantNameLabel" destination="fiD-UO-dhE" id="snO-vY-i81"/>
+                        <outlet property="threeStarImage" destination="heq-OM-4Nd" id="Pyz-wK-1C2"/>
+                        <outlet property="twoStarImage" destination="6Wz-Kp-n3H" id="efw-2U-izo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="337" y="175"/>
+            <point key="canvasLocation" x="345" y="175"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DWK-Re-oMf">
@@ -78,6 +136,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qDu-Yg-OE0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.48787224299999998" green="0.8425498495" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -89,4 +148,7 @@
             <point key="canvasLocation" x="-438" y="175"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="21" height="15"/>
+    </resources>
 </document>
